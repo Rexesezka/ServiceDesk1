@@ -1,0 +1,512 @@
+@use "sass:color";
+
+$white-color: #FFFFFF;
+$gray-color: #838389;
+$text-color: #151515;
+$light-gray: #F2F3F5;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+
+// Цвета приоритетов
+$green-color: #00C853; 
+$orange-color: #FFA726; 
+$red-orange-color: #FF5722; 
+$red-color: #E81922; 
+$gray-priority-color: #9E9E9E;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: #F2F3F5;
+  box-shadow: 2px 2px 4px 0px #afafb8;
+  border-radius: 20px;
+  max-width: 55%;
+  width: 100%;
+  min-height: 70vh;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  
+  // Скрытие стрелок у скроллбара для WebKit браузеров
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #838389;
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+  
+  // Для Firefox
+  scrollbar-width: thin;
+  scrollbar-color: #838389 transparent;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 110px;
+}
+
+.title {
+  margin: 0;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: $text-color;
+  text-align: center;
+  flex: 1;
+}
+
+.closeButton {
+  position: absolute;
+  top: 22px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  color: $text-color;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.content {
+  padding: 22px 110px;
+  display: grid;
+  gap: 1rem;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.priorityFieldGroup {
+  width: min-content;
+}
+
+.readonlyField {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 21px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #EEEEF0;
+  height: 70px;
+  position: relative;
+}
+
+.problemDescriptionField {
+  height: 150px;
+  justify-content: flex-start;
+  padding-top: 25px;
+}
+
+.attachmentsField {
+  min-height: 120px;
+  height: auto;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.label {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $gray-color;
+  margin: 0;
+  margin-bottom: 4px;
+  position: absolute;
+  top: 8px;
+  left: 15px;
+}
+
+.priorityField {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+  padding: 15px 10px;
+  border: 2px solid;
+  border-radius: 12px;
+  background: $light-gray;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  
+  &.low {
+    border-color: $green-color;
+    color: $green-color;
+  }
+
+  &.medium {
+    border-color: $orange-color;
+    color: $orange-color;
+  }
+
+  &.high {
+    border-color: $red-orange-color;
+    color: $red-orange-color;
+  }
+
+  &.urgent {
+    border-color: $red-color;
+    color: $red-color;
+  }
+
+  &.completed {
+    border-color: $gray-priority-color;
+    color: $gray-priority-color;
+  }
+}
+
+.value {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: $text-color;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: flex;
+  flex: 1;
+  margin-top: 12px;
+}
+
+.problemDescriptionField .value {
+  margin-top: 0;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.placeholder {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: $gray-color;
+  flex: 1;
+  display: flex;
+}
+
+.problemDescriptionField .placeholder {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.previews {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.previewItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  gap: 8px;
+}
+
+.previewImage {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+
+.fileName {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: $text-color;
+  text-align: center;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+  justify-content: center;
+}
+
+
+.input,
+.textarea {
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: $text-color;
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+  margin-top: 12px;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  display: flex;
+  flex: 1;
+  resize: none;
+}
+
+.textarea {
+  resize: none;
+  min-height: 100px;
+  margin-top: 0 !important;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.problemDescriptionField textarea,
+.problemDescriptionField .textarea,
+.problemDescriptionField .input {
+  margin-top: 0;
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+  margin-top: 12px;
+  flex: 1;
+  display: flex;
+}
+
+.dropdownButton {
+  width: 100%;
+  text-align: left;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1.4;
+  letter-spacing: 0;
+  color: $text-color;
+  outline: none;
+  flex: 1;
+}
+
+.dropdownButton::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  flex: 0 0 32px;
+  transition: transform 0.2s ease;
+}
+
+.open .dropdownButton::after {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  left: -16px;
+  right: -16px;
+  margin-top: 7px;
+  background: $light-gray;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  z-index: 100;
+  overflow: auto;
+  max-height: 300px;
+  list-style: none;
+  padding: 0;
+  top: 100%;
+}
+
+.dropdownItem {
+  padding: 10px 25px;
+  font-size: 22px;
+  cursor: pointer;
+  color: $text-color;
+  font-family: 'Rubik', sans-serif;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background: color.adjust($light-gray, $lightness: -3%);
+  }
+  
+  &.active {
+    background: color.adjust($light-gray, $lightness: -5%);
+  }
+}
+
+.closeBtn {
+  padding: 0.9rem 1.5rem;
+  background: #111111;
+  color: $white-color;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.editBtn,
+.saveBtn,
+.cancelBtn,
+.revisionBtn,
+.completedBtn {
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+  
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.editBtn {
+  background: #4CAF50;
+  color: $white-color;
+}
+
+.saveBtn {
+  background: #2196F3;
+  color: $white-color;
+}
+
+.cancelBtn {
+  background: $gray-color;
+  color: $white-color;
+}
+
+.revisionBtn {
+  background: $gray-color;
+  color: $white-color;
+}
+
+.completedBtn {
+  background: #111111;
+  color: $white-color;
+}
+
+.expenseTable {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.readonlyField:has(.expenseTable) {
+  background: transparent;
+  padding: 0;
+  height: auto;
+ 
+  .label {
+    font-size: 22px;
+    color: $text-color;
+  }
+}
+
+.expenseRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-bottom: 1px solid #8383894D;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.expenseCell {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #8383894D;
+  
+  &:last-child {
+    border-right: none;
+  }
+  
+  .input,
+  .value {
+    padding: 8px 12px;
+    min-height: 36px;
+    background: transparent;
+  }
+}
+

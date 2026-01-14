@@ -1,0 +1,169 @@
+@use "sass:color";
+
+$white-color: #FFFFFF;
+$gray-color: #838389;
+$text-color: #151515;
+$light-gray: #F2F3F5;
+$border-color: #838389;
+$red-orange-color: #FF5722;
+
+.pageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.filtersContainer {
+  margin-bottom: 24px;
+}
+
+.filtersRow {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.dropdown {
+  position: relative;
+  flex: 1;
+  max-width: calc((100% - 32px) / 3); /* Ограничиваем ширину: 3 элемента с gap 16px (2 * 16px = 32px) */
+}
+
+.dropdownButton {
+  width: 100%;
+  text-align: left;
+  padding: 18px 20px;
+  border: 1px solid $gray-color;
+  border-radius: 12px;
+  background: $light-gray;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: $text-color;
+  outline: none;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: color.adjust($light-gray, $lightness: -2%);
+  }
+}
+
+.dropdownButton::after {
+  content: '';
+  width: 32px;
+  height: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+  flex: 0 0 32px;
+  transition: transform 0.2s ease;
+}
+
+.open .dropdownButton::after {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: -10px;
+  background: $light-gray;
+  border: 1px solid $gray-color;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  z-index: 10;
+  overflow: auto;
+  max-height: 300px;
+  list-style: none;
+  padding: 0;
+}
+
+.dropdownItem {
+  padding: 10px 25px;
+  font-size: 22px;
+  cursor: pointer;
+  color: $text-color;
+  font-family: 'Rubik', sans-serif;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background: color.adjust($light-gray, $lightness: -3%);
+  }
+  
+  &.active {
+    background: color.adjust($light-gray, $lightness: -5%);
+  }
+}
+
+.archiveList {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  gap: 0;
+  margin: 24px auto;
+}
+
+.emptyState {
+  text-align: center;
+  color: color.adjust($text-color, $lightness: 45%);
+  padding: 48px 0;
+  font-size: 22px;
+  font-family: Rubik;
+}
+
+.loadMoreContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.loadMoreButton {
+  padding: 18px 40px;
+  background-color: $red-orange-color;
+  color: $white-color;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Fira Code', sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 2%;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  
+  &:hover {
+    background-color: color.adjust($red-orange-color, $lightness: -5%);
+  }
+  
+  &:active {
+    background-color: color.adjust($red-orange-color, $lightness: -10%);
+  }
+}
+
+@media (max-width: 768px) {
+  .filtersRow {
+    flex-direction: column;
+  }
+  
+  .dropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+

@@ -1,0 +1,316 @@
+@use "sass:color";
+
+// Переменные
+$red-color: #E81922;
+$black-color: #111111;
+$gray-light: #F2F3F5;
+$gray-medium: #999999;
+$gray-dark: #333333;
+$white-color: #FFFFFF;
+
+
+// Header
+.profileHeader {
+  background: none;
+  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profileHeaderContent {
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $red-color;
+  white-space: nowrap;
+}
+
+.profileNav {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: $gray-dark;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.active {
+    color: $red-color;
+    background: rgba($red-color, 0.1);
+  }
+
+  &:hover {
+    background: rgba($gray-dark, 0.05);
+  }
+}
+
+.notificationBadge {
+  background: $red-color;
+  color: $white-color;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.createRequestBtn {
+  background: $red-color;
+  color: $white-color;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: color-mix(in srgb, $red-color 90%, black);
+  }
+}
+
+// Main Content
+.profileMain {
+  margin: 0 auto;
+}
+
+// Profile Content Wrapper
+.profileContent {
+  width: 100%;
+}
+
+// User Summary
+.userSummary {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  min-height: 220px;
+}
+
+.avatarContainer {
+  position: relative;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  // Используем SVG как маску для изображения
+  // Изображение будет обрезано по форме контура SVG
+  mask-image: url('/assets/avatar.svg');
+  -webkit-mask-image: url('/assets/avatar.svg');
+  mask-size: 100% 100%;
+  -webkit-mask-size: 100% 100%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  // Режим маски - альфа-канал
+  mask-mode: alpha;
+  -webkit-mask-mode: alpha;
+  // Для старых браузеров можно использовать clip-path как fallback
+  // но это не точно повторит форму SVG
+}
+
+.editAvatarBtn {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  z-index: 10;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  input {
+    display: none;
+  }
+}
+
+.userName {
+  font-size: 36px;
+  font-weight: 500;
+  color: $gray-dark;
+  margin: 0;
+}
+
+// About Section
+.aboutSection {
+  width: 100%;
+  background-color: $white-color;
+  min-height: 100%;
+  padding: 91px 0;
+}
+
+.aboutSectionContent {
+  max-width: 30%;
+  margin: 0 auto;
+}
+
+.logoutBtnContainer {
+  max-width: 30%;
+  margin: 48px auto;
+}
+
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: $gray-dark;
+  margin-bottom: 1rem;
+}
+
+.infoCard {
+  background: $gray-light;
+  border-radius: 16px;
+  padding: 8px 20px;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 8px 0;
+
+}
+
+.infoLabel {
+  color: $gray-medium;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.infoValue {
+  color: $gray-dark;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: right;
+  flex: 1;
+}
+
+// Buttons
+.logoutBtn {
+  width: 220px;
+  background: $black-color;
+  color: $white-color;
+  border: none;
+  border-radius: 12px;
+  padding: 16px 59px;
+  font-family: var(--font-family-mono);
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  justify-content: center;
+
+  &:hover {
+    background: color.scale($black-color, $lightness: 10%);
+  }
+}
+
+.btnIcon {
+  font-size: 1.2rem;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .profileHeaderContent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profileNav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .userSummary {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .userName {
+    font-size: 1.5rem;
+  }
+
+  .infoItem {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .infoValue {
+      margin-left: 0;
+      text-align: left;
+    }
+  }
+}

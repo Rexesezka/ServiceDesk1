@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.list {
+  width: 100%;
+  max-width: 720px;
+}
+
+.section {
+  margin-bottom: 32px;
+  padding: 24px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #151515;
+  margin: 0;
+}
+
+.sectionCount {
+  min-width: 42px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background-color: #f0f2ffc0;
+  color: #E81922;
+  font-weight: 600;
+  text-align: center;
+}
+
+.item {
+  padding: 12px 0;
+}
+
+.text {
+  font-size: 16px;
+  line-height: 22px;
+  color: #151515;
+  margin-bottom: 8px;
+}
+
+.time {
+  font-size: 12px;
+  line-height: 16px;
+  color: #7a7a7a;
+}
+
+.itemFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.separator {
+  margin-top: 12px;
+  height: 1px;
+  width: 100%;
+  background-color: #e5e5e5;
+}
+
+.empty {
+  text-align: center;
+  color: #7a7a7a;
+  padding: 24px 0;
+}
+
+.markReadButton {
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(120deg, #E81922, #E81922);
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.markReadButton:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.markReadButton:not(:disabled):hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+

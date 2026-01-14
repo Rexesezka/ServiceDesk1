@@ -1,0 +1,258 @@
+@use "sass:color";
+
+$white-color: #FFFFFF;
+$gray-color: #838389;
+$text-color: #151515;
+$light-gray: #F2F3F5;
+$border-color: #838389;
+$black-color: #222224;
+
+body {
+  outline: none;
+}
+
+
+.pageContainer {
+  width: 90%;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.filtersContainer {
+  display: flex;
+  gap: 28px;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.archiveButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 18px 20px;
+  background-color: $white-color;
+  border: 1px solid $gray-color;
+  border-radius: 12px;
+  justify-content: center;
+  font-family: 'Fira Code', sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  background-color: $black-color;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: 2%;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: $white-color;
+  transition: background-color 0.2s ease;
+  width: 10vw;
+  &:hover {
+    background-color: $gray-color;
+  }
+  
+  &:active {
+    background-color: color.adjust($light-gray, $lightness: -8%);
+  }
+}
+
+.filterDropdown {
+  position: relative;
+}
+
+.filterButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: $light-gray;
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  border: 1px solid $gray-color;
+  border-radius: 12px;
+  color: $text-color;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 25vw;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.arrow {
+  width: 23px;
+  height: 13px;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+  
+  &.arrowOpen {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: calc(100% - 10px);
+  left: 0;
+  right: 0;
+  background-color: $light-gray;
+  border: 1px solid $gray-color;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.dropdownItem {
+  width: 100%;
+  padding: 12px 20px;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  height: 56px;
+  color: $text-color;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  
+  &:first-child {
+    border-bottom: 1px solid $gray-color;
+    border-top: 1px solid $gray-color;
+  }
+  
+  &:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+}
+
+.dashboard {
+  display: flex;
+  gap: 25px;
+  height: calc(100vh - 280px);
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  &.employee {
+    .column {
+      flex: 1 1 calc(33.333% - 17px);
+      min-width: 300px;
+    }
+  }
+
+  &.aho {
+    .column {
+      flex: 1 1 calc(25% - 19px);
+      min-width: 250px;
+    }
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  border-radius: 20px;
+  border: 0.5px solid $gray-color;
+  box-shadow: 4px 2px 10px 1px #8C8C8C40;
+  backdrop-filter: blur(10px);
+  padding: 24px 21px;
+  height: 100%;
+  max-height: 100%;
+  transition: background-color 0.2s ease;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.columnHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  flex-shrink: 0;
+}
+
+.columnTitle {
+  font-size: 28px;
+  font-weight: 500;
+  color: $text-color;
+  margin: 0;
+}
+
+.columnCount {
+  background-color: color.adjust($light-gray, $lightness: -5%);
+  color: color.adjust($text-color, $lightness: 50%);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 24px;
+  text-align: center;
+}
+
+.columnContent {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-right: 12px;
+  margin-right: -4px;
+  padding-top: 5px;
+  
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+    margin: 4px 0;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    
+    &:hover {
+      background: #a8a8a8;
+    }
+  }
+}
+
+.emptyColumn {
+  text-align: center;
+  color: color.adjust($text-color, $lightness: 45%);
+  padding: 24px 0;
+  font-size: 14px;
+}
+
+.dragOver {
+  background-color: $light-gray;
+}
+
+@media (max-width: 1200px) {
+  .dashboard {
+    flex-direction: column;
+    height: auto;
+    min-height: calc(100vh - 200px);
+    
+    .column {
+      flex: 1 1 100%;
+      min-width: 100%;
+      height: auto;
+      max-height: 600px;
+    }
+  }
+}
+

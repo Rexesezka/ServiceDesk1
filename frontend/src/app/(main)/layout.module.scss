@@ -1,0 +1,108 @@
+// Переменные
+$red-color: #DC4433;
+$black-color: #222224;
+$gray-light: #F5F5F5;
+$gray-medium: #999999;
+$gray-dark: #333333;
+$white-color: #FFFFFF;
+
+// Общие стили для страницы профиля
+.profileContainer {
+  max-height: 100vh;
+}
+
+// Header
+.profileHeader {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.profileHeaderContent {
+  height: 120px;
+  margin: 0 auto;
+  padding: 0 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $red-color;
+  white-space: nowrap;
+}
+
+.profileNav {
+  display: flex;
+  gap: 80px;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: $black-color;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  transition: border-color 0.2s;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &.active {
+    color: $red-color;
+    border-bottom: 2px solid $red-color;
+  }
+
+  &:hover {
+    border-bottom: 2px solid $red-color;
+  }
+}
+
+.createRequestBtn {
+  background: $red-color;
+  color: $white-color;
+  border: none;
+  border-radius: 10px;
+  padding: 19px 26px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  text-decoration: none;
+  &:hover {
+    background: color-mix(in srgb, $red-color 90%, black);
+  }
+}
+
+// Main Content
+.profileMain {
+  margin: 0 auto;
+  background: inherit;
+  min-height: calc(100vh - 120px);
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .profileHeaderContent {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profileNav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+}

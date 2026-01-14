@@ -1,0 +1,120 @@
+@use "sass:color";
+
+// Переменные
+$white-color: #FFFFFF;
+$green-color: #00C853; 
+$orange-color: #FFA726; 
+$red-orange-color: #FF5722; 
+$red-color: #E81922; 
+$gray-color: #9E9E9E; 
+$text-color: #000000;
+$border-radius: 12px;
+$border-width: 2px;
+
+.requestCard {
+  background: $white-color;
+  border-radius: $border-radius;
+  border: $border-width solid;
+  padding: 16px;
+  cursor: grab;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &.low {
+    border-color: $green-color;
+  }
+
+  &.medium {
+    border-color: $orange-color;
+  }
+
+  &.high {
+    border-color: $red-orange-color;
+  }
+
+  &.urgent {
+    border-color: $red-color;
+  }
+
+  &.completed {
+    border-color: $gray-color;
+  }
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.requestId {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 18px;
+  color: color.adjust($text-color, $lightness: 50%);
+}
+
+.priority {
+  font-weight: 600;
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  &.low {
+    color: $green-color;
+  }
+
+  &.medium {
+    color: $orange-color;
+  }
+
+  &.high {
+    color: $red-orange-color;
+  }
+
+  &.urgent {
+    color: $red-color;
+  }
+
+  &.completed {
+    color: $gray-color;
+  }
+}
+
+.location {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  color: $text-color;
+  margin-bottom: 8px;
+}
+
+.issueType {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  color: color.adjust($text-color, $lightness: 30%);
+  margin-bottom: 8px;
+}
+
+.date {
+  font-family: Rubik;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    color: color.adjust($text-color, $lightness: 40%);
+}
+

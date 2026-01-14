@@ -1,0 +1,89 @@
+// Переменные для поля ввода
+$input-bg: #EEEEF0;
+$input-border: #838389;
+$input-placeholder-color: #838389;
+$input-font-family: 'Rubik', sans-serif;
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.formGroup label {
+  font-weight: 500;
+  color: var(--text-color);
+  font-family: $input-font-family;
+}
+
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+.formGroup input {
+  height: 64px;
+  width: 100%;
+  background-color: $input-bg;
+  border: 1px solid $input-border;
+  border-radius: 10px;
+  padding: 20px;
+  padding-right: 60px;
+  font-size: 22px;
+  font-family: $input-font-family;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 100%;
+  letter-spacing: 0%;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+  
+  &::placeholder {
+    color: $input-placeholder-color;
+    font-family: $input-font-family;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    line-height: 100%;
+    letter-spacing: 0%;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 112, 243, 0.1);
+  }
+}
+
+.label{
+    display: none;
+}
+
+.passwordToggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  z-index: 10;
+  
+  img {
+    width: 20px;
+    height: 20px;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+  }
+  
+  &:hover img {
+    opacity: 1;
+  }
+}

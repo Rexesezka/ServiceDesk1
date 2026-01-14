@@ -1,0 +1,86 @@
+@use "sass:color";
+
+// Переменные
+$white-color: #FFFFFF;
+$light-gray: #F2F3F5;
+$green-color: #00C853; 
+$orange-color: #FFA726; 
+$red-orange-color: #FF5722; 
+$red-color: #E81922; 
+$gray-color: #9E9E9E; 
+$text-color: #000000;
+$border-radius: 20px;
+
+.archiveCard {
+  background: $light-gray;
+  border-radius: $border-radius;
+  border: 2px solid $gray-color;
+  padding: 16px;
+  margin-bottom: 16px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  position: relative;
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-inline-start: 15px;
+}
+
+.priority {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: $gray-color; // Все приоритеты в архиве серого цвета
+}
+
+.location {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  color: $text-color;
+}
+
+.issueType {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  color: color.adjust($text-color, $lightness: 30%);
+}
+
+.performer {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 22px;
+  color: color.adjust($text-color, $lightness: 30%);
+}
+
+.date {
+  font-family: Rubik;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  color: color.adjust($text-color, $lightness: 40%);
+}
+

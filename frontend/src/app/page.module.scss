@@ -1,0 +1,146 @@
+// Переменные
+$primary-color: #0070f3;
+$text-color: #333;
+$font-family-primary: 'Rubik', sans-serif;
+
+// Миксины
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card-style {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+// Стили для страницы авторизации
+.authLayout {
+  min-height: 100vh;
+  @include flex-center;
+  background: linear-gradient(135deg, #F2F3F5 0%, #F0F1F5 50%, #EBEDF4 100%);
+}
+
+.authContainer {
+  @include card-style;
+  padding: 0;
+  width: 100%;
+  max-width: 640px;
+  height: 100%;
+  min-height: 780px;
+}
+
+.authPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0 5.15625vw;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $text-color;
+    font-family: $font-family-primary;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 56px 0 96px 0;
+  }
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.authLabels{
+  margin: 0 2px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.forgotPassword {
+  color: $primary-color;
+  text-decoration: none;
+  font-family: $font-family-primary;
+  font-size: 22px;
+  font-weight: 400;
+  text-align: left;
+  margin-top: 1rem;
+  margin-bottom: 22px;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.errorMessage {
+  color: #ff4444;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  text-align: center;
+  margin: 16px 0;
+  padding: 12px;
+  background: #ffebee;
+  border-radius: 8px;
+}
+
+.authButton {
+  background: #111111;            // чёрный фон, как на макете
+  color: #ffffff;                 // белый текст
+  height: 56px;                   // высокая кнопка
+  border: none;
+  border-radius: 16px;            // сильное скругление
+  padding: 0 32px;                // горизонтальные отступы
+  font-size: 22px;                // крупный шрифт
+  font-weight: 500;               // жирное начертание
+  letter-spacing: 0.04em;         // небольшой трекинг
+  text-transform: uppercase;      // ВОЙТИ капсом
+  cursor: pointer;
+  margin: 0 auto 24px;         // отступы сверху/снизу, центрирование
+  font-family: $font-family-primary;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 200px;
+
+  &:hover { opacity: 0.9; }
+  &:active { opacity: 0.85; }
+}
+
+.signUpRow {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 4px;
+  font-family: $font-family-primary;
+  font-size: 22px;
+  line-height: 100%;
+  color: $text-color;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
+.signUpLink {
+  color: $primary-color;          // синий
+  text-decoration: none;
+  font-weight: 400;
+
+  &:hover { text-decoration: underline; }
+}
+
+// Адаптивность
+@media (max-width: 600px) {
+  .authContainer {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+}
