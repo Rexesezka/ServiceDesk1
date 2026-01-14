@@ -90,10 +90,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('POSTGRES_DB', 'Alpha'),
-        'USER': os.environ.get('POSTGRES_USER', 'postgres'),
-        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'Zserdx554367890'),
-        'HOST': os.environ.get('POSTGRES_HOST', 'localhost'),
+        'NAME': os.environ.get('POSTGRES_DB', 'alpha_rpmx'),
+        'USER': os.environ.get('POSTGRES_USER', 'user'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD', 'nGvmM6DkWpqJv3Va7LBJFvU9o2hXltMM'),
+        'HOST': os.environ.get('POSTGRES_HOST', 'postgresql://user:nGvmM6DkWpqJv3Va7LBJFvU9o2hXltMM@dpg-d5jnbpumcj7s738fr6fg-a/alpha_rpmx'),
         'PORT': os.environ.get('POSTGRES_PORT', '5432'),
     }
 }
